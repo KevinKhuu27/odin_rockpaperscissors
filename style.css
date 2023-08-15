@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    display: flex;
+    font-family: Roboto, sans-serif;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.header_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+.title {
+    color: rgb(58, 32, 15);
+    font-size: 48px;
+    font-weight: 900;
+    border: 8px solid rgb(58, 32, 15);
+    border-radius: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.game {
+    display: flex;
+    background-color: beige;
+}
+
+.game_container {
+    display: flex;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.option {
+    background-color: white;
+    border: 8px solid rgb(58, 32, 15);
+    border-radius: 16px;
+    padding: 16px;
+    width: 100px;
+    height: 100px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid rgb(58, 32, 15);
+    border-radius: 8px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.footer_container {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_text {
+    font-size: 16px;
+    font-weight: 800;
+    border: 4px solid rgb(58, 32, 15);
+    border-radius: 8px;
+    color: rgb(58, 32, 15);
+    padding: 4px;
+}
