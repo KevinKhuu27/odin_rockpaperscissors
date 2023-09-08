@@ -7,6 +7,7 @@ function playerChose (playerSelection)
     let computerSelection = getComputerChoice();
     calcScore(playRound(playerSelection, computerSelection));
     updateDisplay(playerSelection, computerSelection);
+    updateImg(playerSelection,computerSelection);
     gameOver();
 }
 
@@ -72,6 +73,26 @@ function updateDisplay(playerSelection, computerSelection)
     comp_score.textContent = "Computer Score: " + computerScore;
 }
 
+function updateImg(playerSelection,computerSelection)
+{
+    const player_img = document.getElementById('player_img');
+    const comp_img = document.getElementById('comp_img');
+
+    if (playerSelection == "ROCK")
+        player_img.src="fist.png";
+    else if (playerSelection == "PAPER")
+        player_img.src="hand-palm.png";
+    else if (playerSelection == "SCISSORS")
+        player_img.src="two.png";
+
+    if (computerSelection == "ROCK")
+        comp_img.src="fist.png";
+    else if (computerSelection == "PAPER")
+        comp_img.src="hand-palm.png";
+    else if (computerSelection == "SCISSORS")
+        comp_img.src="two.png";
+
+}
 
 function gameOver()
 {
