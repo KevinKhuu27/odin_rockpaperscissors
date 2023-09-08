@@ -17,29 +17,35 @@
     <div class="game">
         <div class="game_container">
             <div class="options">
-                <div class="option"><button class="rock">Rock</button></div>
-                <div class="option"><button class="paper">Paper</button></div>
-                <div class="option"><button class="scissors">Scissors</button></div>
+                <div class="option"><button class="button_option" id="rock"><img src="fist.png" alt="Rock"></button></div>
+                <div class="option"><button class="button_option" id="paper"><img src="hand-palm.png" alt="Paper"></button></div>
+                <div class="option"><button class="button_option" id="scissors"><img src="two.png" alt="Scissors"></button></div>
             </div>
             <div class="results">
                 <div class="output">
                     <div class="player">
-                        <div>You chose </div>
-                        <div><img src="" alt=""></div>
-                        <div>Your Score: </div>
+                        <div id="you_chose">You Chose:</div>
+                        <div><img class="player_img" src="" alt=""></div>
+                        <div id="your_score">Your Score: 0</div>
                     </div>
                     <div class="computer">
-                        <div>Computer chose </div>
-                        <div><img src="" alt=""></div>
-                        <div>Computer Score: </div>
+                        <div id="comp_chose">Computer Chose:</div>
+                        <div><img class="comp_img" src="" alt=""></div>
+                        <div id="comp_score">Computer Score: 0</div>
                     </div>
                 </div>
                 <div class="play_again">
-                    <div class="winner">You Win!</div>
-                    <button class="button_play">Play Again</button>
+                    <div class="winner"></div>
+                    <button class="button_play" id="reset">Play Again</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="credits">
+        <a href="https://www.flaticon.com/free-icons/fist" title="fist icons">Fist icons created by Cuputo - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/scissor" title="scissor icons">Scissor icons created by Alfian Dwi Hartanto - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/hand" title="hand icons">Hand icons created by Cuputo - Flaticon</a>
     </div>
 
     <div class="footer">

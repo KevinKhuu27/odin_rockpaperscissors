@@ -1,15 +1,13 @@
-function getPlayerChoice () 
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playerChose (playerSelection)
 {
-    while (true)
-    {
-        let input = prompt("Your selection: ");
-        input = input.toUpperCase();
-        if (input == "ROCK" || input == "PAPER" || input == "SCISSORS")
-        {
-            return input;
-            break;
-        }
-    }
+    let computerSelection = getComputerChoice();
+    calcScore(playRound(playerSelection, computerSelection));
+    updateDisplay(playerSelection, computerSelection);
+    gameOver();
 }
 
 function getComputerChoice () {
@@ -53,45 +51,61 @@ function playRound (playerSelection, computerSelection)
     }
 }
 
-function game()
+function calcScore (result)
 {
-    let playerSelection = "";
-    let computerSelection = "";
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (var i = 0; i < 5; i++)
-    {
-        playerSelection = getPlayerChoice();
-        computerSelection = getComputerChoice();
-    
-        let output = playRound(playerSelection, computerSelection);
-        if (output == -1)
-        {
-            computerScore++;
-            console.log("Computer wins this round! " + computerSelection + " beats " + playerSelection);
-        }
-        else if (output == 1)
-        {
-            playerScore++;
-            console.log("You win this round! " + playerSelection + " beats " + computerSelection);
-        }
-        else
-        {
-            computerScore++;
-            playerScore++;
-            console.log("It's a tie this round! Both players picked " + playerSelection);
-        }
-    }
-
-    let result = "";
-    if (playerScore > computerScore)
-        result = "The final score is " + playerScore + ":" + computerScore + " - You Win!";
-    else if (playerScore < computerScore)
-        result = "The final score is " + playerScore + ":" + computerScore + " - You Lose!";
-    else
-        result = "The final score is " + playerScore + ":" + computerScore + " - It's a tie!";
-    return result;
+    if (result == -1)
+        computerScore++;
+    else if (result == 1)
+        playerScore++;
 }
 
-console.log(game());
+function updateDisplay(playerSelection, computerSelection)
+{
+    const you_chose = document.querySelector('#you_chose');
+    const your_score = document.getElementById('your_score')
+    you_chose.textContent = "You Chose: " + playerSelection;
+    your_score.textContent = "Your Score: " + playerScore;
+
+    const comp_chose = document.querySelector('#comp_chose');
+    const comp_score = document.getElementById('comp_score')
+    comp_chose.textContent = "Computer Chose: " + computerSelection;
+    comp_score.textContent = "Computer Score: " + computerScore;
+}
+
+
+function gameOver()
+{
+    if ((playerScore == 5 || computerScore == 5))
+    {
+        let result = "";
+        if (playerScore > computerScore)
+            result = "The final score is " + playerScore + ":" + computerScore + " - You Win!";
+        else if (playerScore < computerScore)
+            result = "The final score is " + playerScore + ":" + computerScore + " - You Lose!";
+        else
+            result = "The final score is " + playerScore + ":" + computerScore + " - It's a tie!";
+
+        const winnerStr = document.querySelector('.winner');
+        winnerStr.textContent = result;
+    }
+}
+
+function resetGame()
+{
+    playerScore = 0;
+    computerScore = 0;
+
+    const winnerStr = document.querySelector('.winner');
+    winnerStr.textContent = "";
+    updateDisplay("", "");
+}
+
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
+const resetBtn = document.getElementById("reset");
+
+rockBtn.addEventListener('click', () => playerChose("ROCK"));
+paperBtn.addEventListener('click', () => playerChose("PAPER"));
+scissorsBtn.addEventListener('click', () => playerChose("SCISSORS"));
+resetBtn.addEventListener('click', () => resetGame())
