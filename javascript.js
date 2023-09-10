@@ -125,6 +125,11 @@ function resetGame()
     const winnerStr = document.getElementById('winner');
     winnerStr.textContent = "";
     updateDisplay("", "");
+
+    const compImg = document.getElementById('comp_img');
+    compImg.src="robot.png";
+    const playerImg = document.getElementById('player_img');
+    playerImg.src="happy.png";
 }
 
 const rockBtn = document.getElementById("rock");
