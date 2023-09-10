@@ -109,7 +109,7 @@ function gameOver()
             else
                 result = "The final score is " + playerScore + ":" + computerScore + " - It's a tie!";
     
-            const winnerStr = document.querySelector('.winner');
+            const winnerStr = document.getElementById('winner');
             winnerStr.textContent = result;
             waitingRestart = true;
         }
@@ -122,7 +122,7 @@ function resetGame()
     computerScore = 0;
     waitingRestart = false;
 
-    const winnerStr = document.querySelector('.winner');
+    const winnerStr = document.getElementById('winner');
     winnerStr.textContent = "";
     updateDisplay("", "");
 }
