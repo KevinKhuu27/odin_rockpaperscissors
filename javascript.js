@@ -1,6 +1,7 @@
 
 let playerScore = 0;
 let computerScore = 0;
+let waitingRestart = false;
 
 function playerChose (playerSelection)
 {
@@ -96,18 +97,22 @@ function updateImg(playerSelection,computerSelection)
 
 function gameOver()
 {
-    if ((playerScore == 5 || computerScore == 5))
+    if (!(waitingRestart))
     {
-        let result = "";
-        if (playerScore > computerScore)
-            result = "The final score is " + playerScore + ":" + computerScore + " - You Win!";
-        else if (playerScore < computerScore)
-            result = "The final score is " + playerScore + ":" + computerScore + " - You Lose!";
-        else
-            result = "The final score is " + playerScore + ":" + computerScore + " - It's a tie!";
-
-        const winnerStr = document.querySelector('.winner');
-        winnerStr.textContent = result;
+        if (playerScore == 5 || computerScore == 5)
+        {
+            let result = "";
+            if (playerScore > computerScore)
+                result = "The final score is " + playerScore + ":" + computerScore + " - You Win!";
+            else if (playerScore < computerScore)
+                result = "The final score is " + playerScore + ":" + computerScore + " - You Lose!";
+            else
+                result = "The final score is " + playerScore + ":" + computerScore + " - It's a tie!";
+    
+            const winnerStr = document.querySelector('.winner');
+            winnerStr.textContent = result;
+            waitingRestart = true;
+        }
     }
 }
 
@@ -115,6 +120,7 @@ function resetGame()
 {
     playerScore = 0;
     computerScore = 0;
+    waitingRestart = false;
 
     const winnerStr = document.querySelector('.winner');
     winnerStr.textContent = "";
